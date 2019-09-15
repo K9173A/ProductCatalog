@@ -1,0 +1,25 @@
+{% extends 'mainapp/base.html' %}
+
+{% block content %}
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="card my-4">
+      <div class="card-header text-center text-uppercase font-weight-bold">
+        {{ title }}
+      </div>
+      <div class="card-body">
+        <form method="post" enctype="multipart/form-data" id="project-create-form">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <div class="d-flex justify-content-around">
+            <input class="btn btn-secondary" form="project-create-form" type="submit" value="Сохранить">
+            <a class="btn btn-secondary" href="{% url 'main:catalog' %}">
+              Отметна
+            </a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

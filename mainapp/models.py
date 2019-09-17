@@ -11,6 +11,9 @@ class Product(models.Model):
         verbose_name='Дата поступления',
         auto_now_add=True
     )
+    price = models.PositiveIntegerField(
+        verbose_name='Цена'
+    )
     measuring_system = models.CharField(
         verbose_name='Единцы измерения',
         max_length=32

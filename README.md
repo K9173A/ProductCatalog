@@ -26,4 +26,4 @@ pip install -r requirements.txt
 * Run Django-server: `python manage.py runserver 127.0.0.1:8000`
 
 ### License
-ProductCatalog is released under the terms of the MIT license. See MIT and LICENSE for more information.
+ProductCatalog is released under the terms of the MIT license.  See [MIT](https://opensource.org/licenses/MIT) and [LICENSE](https://github.com/K9173A/ProductCatalog/blob/master/LICENSE) for more information.

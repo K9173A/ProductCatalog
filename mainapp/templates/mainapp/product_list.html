@@ -1,0 +1,9 @@
+{% for product in products %}
+  <tr>
+    <td>{{ product.name }}</td>
+    <td>{{ product.date }}</td>
+    <td>{{ product.price }}</td>
+    <td>{{ product.measuring_system }}</td>
+    <td>{{ product.provider }}</td>
+  </tr>
+{% endfor %}

@@ -1,3 +1,6 @@
+"""
+URL dispatcher of the mainapp.
+"""
 from django.urls import path
 
 from .views import catalog, create_product

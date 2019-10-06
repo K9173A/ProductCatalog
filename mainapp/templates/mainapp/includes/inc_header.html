@@ -1,13 +1,12 @@
-<nav class="navbar navbar-expand-lg p-3 menu">
-  <ul class="nav navbar-nav mx-auto">
-    <li>
-      <a href="{% url 'main:catalog' %}" class="btn btn-outline-secondary mx-2">
+<nav class="navbar navbar-expand-lg bg-dark">
+  <ul class="navbar-nav mx-auto">
+    <li class="nav-item">
+      <a href="{% url 'main:catalog' %}" class="btn btn-primary mx-1">
         Catalog
       </a>
     </li>
-    <li>
-      <button data-url="{% url 'main:create_product' %}"
-              class="js-create-product btn btn-outline-secondary mx-2">
+    <li class="nav-item">
+      <button type="button" class="btn btn-primary mx-1" data-toggle="modal" data-target="#modal">
         New
       </button>
     </li>

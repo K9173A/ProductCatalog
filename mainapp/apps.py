@@ -1,3 +1,6 @@
+"""
+Module for mainapp configuration.
+"""
 from django.apps import AppConfig
 
 

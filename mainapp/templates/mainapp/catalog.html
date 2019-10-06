@@ -7,11 +7,11 @@
       <table class="table table-striped" id="product-table">
         <thead>
           <tr>
-            <th scope="col">Название</th>
-            <th scope="col">Дата поступления</th>
-            <th scope="col">Цена</th>
-            <th scope="col">Единцы измерения</th>
-            <th scope="col">Поставщик</th>
+            <th scope="col">Name</th>
+            <th scope="col">Date</th>
+            <th scope="col">Price</th>
+            <th scope="col">Unit</th>
+            <th scope="col">Provider</th>
           </tr>
         </thead>
         <tbody>
@@ -24,11 +24,6 @@
       </div>
     {% endif %}
   </div>
-  <div class="modal fade" id="modal-product">
-    <div class="modal-dialog">
-      <div class="modal-content">
-      </div>
-    </div>
-  </div>
+  {% include 'mainapp/create_product_modal.html' %}
 </div>
 {% endblock %}

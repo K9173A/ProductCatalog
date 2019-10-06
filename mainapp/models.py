@@ -1,24 +1,38 @@
+"""
+Module for mainapp models.
+"""
 from django.db import models
 
 
 class Product(models.Model):
     """Model which stores products."""
-    name = models.CharField(
-        verbose_name='Название',
-        max_length=32
+    UNITS = (
+        (0, 'шт.'),
+        (1, 'кг.'),
     )
-    date = models.DateTimeField(
-        verbose_name='Дата поступления',
-        auto_now_add=True
+
+    class Meta:
+        verbose_name = 'Product'
+        verbose_name_plural = 'Products'
+
+    name = models.CharField(
+        verbose_name='Name',
+        max_length=128
+    )
+    date = models.DateField(
+        verbose_name='Date'
     )
     price = models.PositiveIntegerField(
-        verbose_name='Цена'
+        verbose_name='Price',
+        default=0
     )
-    measuring_system = models.CharField(
-        verbose_name='Единцы измерения',
-        max_length=32
+    unit = models.IntegerField(
+        verbose_name='Unit',
+        choices=UNITS,
+        default=0
     )
     provider = models.CharField(
-        verbose_name='Поставщик',
-        max_length=32
+        verbose_name='Provider',
+        max_length=128,
+        blank=True
     )

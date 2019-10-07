@@ -35,12 +35,11 @@ def create_product(request):
         form = ProductForm(request.POST)
         if form.is_valid():
             form.save()
-            products = Product.objects.all()
             data = {
                 'form_is_valid': True,
                 'products_html': render_to_string(
                     'mainapp/product_list.html',
-                    context={'products': products},
+                    context={'products': Product.objects.all()},
                     request=request
                 )
             }
@@ -62,3 +61,24 @@ def create_product(request):
             )
         }
     return JsonResponse(data)
+
+
+def delete_product(request, pk):
+    """
+    Deletes item from the database.
+    :param request: request object.
+    :param pk: id of item to be deleted.
+    :return: updated list of products.
+    """
+    if request.is_ajax():
+        item = Product.objects.filter(pk=pk).first()
+        if item:
+            item.delete()
+        data = {
+            'products_html': render_to_string(
+                'mainapp/product_list.html',
+                context={'products': Product.objects.all()},
+                request=request
+            )
+        }
+        return JsonResponse(data)

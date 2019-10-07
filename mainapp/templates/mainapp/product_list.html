@@ -5,5 +5,11 @@
     <td>{{ product.price }}</td>
     <td>{{ product.get_unit_display }}</td>
     <td>{{ product.provider }}</td>
+    <td>
+      <button data-url="{% url 'main:delete_product' product.pk %}" type="button"
+              class="btn btn-primary delete-btn" data-toggle="modal" data-target="#modal-confirm-delete">
+        Delete
+      </button>
+    </td>
   </tr>
 {% endfor %}

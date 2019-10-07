@@ -14,10 +14,12 @@ const initForm = (form, data) => {
 };
 
 $(function () {
+  let deleteItemUrl = null;
+
   // Sends form for the creation of a new item.
   // If successful, renews list of items.
   $('#add-button').on('click', function () {
-    let modal = $(this).parents('.modal').first();
+    let modal = $('#modal-create-product');
     let form = modal.find('form');
     $.post(
       form.attr('action'),
@@ -33,8 +35,25 @@ $(function () {
       });
   });
 
-  // Shows item creation modal window
-  $('#modal').on('show.bs.modal', function () {
+  // Sends request to the server to delete selected item.
+  // If successful, renews list of items.
+  $('#delete-button').on('click', function () {
+    $.ajax({
+      url: deleteItemUrl,
+      success: function (data) {
+        $('table tbody').html(data.products_html);
+        $('#modal-confirm-delete').modal('toggle');
+      }
+    })
+  });
+
+  // Saves url for item deleting when delete button is being pressed.
+  $('#product-table').on('click', '.delete-btn', function (event) {
+    deleteItemUrl = event.target.dataset.url;
+  });
+
+  // Shows item creation modal window.
+  $('#modal-create-product').on('show.bs.modal', function () {
     let form = $(this).find('form');
     $.get(form.attr('action'), data => initForm(form, data));
   });

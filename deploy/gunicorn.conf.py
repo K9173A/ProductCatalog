@@ -1,5 +1,5 @@
-# The socket to bind.
-bind = '127.0.0.1:8000'
+# Usage: gunicorn ProductCatalog.wsgi --bind 0.0.0.0:$PORT --config deploy/gunicorn.conf.py
+
 # Max number of pending connections.
 backlog = 1024
 # Number of workers spawned for request handling.

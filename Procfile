@@ -1,1 +1,1 @@
-web: gunicorn ProductCatalog.wsgi -c deploy/gunicorn.conf.py
+web: gunicorn ProductCatalog.wsgi --bind 0.0.0.0:$PORT --config deploy/gunicorn.conf.py

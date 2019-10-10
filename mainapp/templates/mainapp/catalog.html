@@ -3,27 +3,26 @@
 {% block content %}
 <div class="container">
   <div class="row d-flex justify-content-center my-4">
-    {% if products %}
-      <table class="table table-striped" id="product-table">
-        <thead>
-          <tr>
-            <th scope="col">Name</th>
-            <th scope="col">Date</th>
-            <th scope="col">Price</th>
-            <th scope="col">Unit</th>
-            <th scope="col">Provider</th>
-            <th scope="col">Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {% include 'mainapp/product_list.html' %}
-        </tbody>
-      </table>
-    {% else %}
-      <div class="h5 font-weight-bold text-uppercase">
-        Увы, но список с товарами пуст
-      </div>
-    {% endif %}
+    <table class="table table-striped" id="product-table"
+           style="display: {% if products %}table{% else %}none{% endif %}">
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Date</th>
+          <th scope="col">Price</th>
+          <th scope="col">Unit</th>
+          <th scope="col">Provider</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% include 'mainapp/product_list.html' %}
+      </tbody>
+    </table>
+    <div id="empty-list-label" class="h5 font-weight-bold text-uppercase"
+           style="display: {% if products %}none{% else %}block{% endif %}">
+      Увы, но список с товарами пуст
+    </div>
   </div>
   {% include 'mainapp/create_product_modal.html' %}
   {% include 'mainapp/confirm_delete_modal.html' %}

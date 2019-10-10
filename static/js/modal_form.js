@@ -13,6 +13,21 @@ const initForm = (form, data) => {
   });
 };
 
+/**
+ * Prepares catalog by switching off/on "display" option to
+ * switch between the label "No items" (when list is empty)
+ * and table (when items are present).
+ * @param action - type of action to be performed.
+ */
+const prepareCatalog = action => {
+  let productsCount = $('#product-table tbody tr').length;
+  if ((action === 'Add' && productsCount === 0)
+    || (action === 'Delete' && productsCount === 1)) {
+    $('#empty-list-label').toggle();
+    $('#product-table').toggle();
+  }
+};
+
 $(function () {
   let deleteItemUrl = null;
 
@@ -26,6 +41,7 @@ $(function () {
       form.serialize(),
       data => {
         if (data.form_is_valid) {
+          prepareCatalog('Add');
           $('table tbody').html(data.products_html);
           modal.modal('toggle');
         }
@@ -41,6 +57,7 @@ $(function () {
     $.ajax({
       url: deleteItemUrl,
       success: function (data) {
+        prepareCatalog('Delete');
         $('table tbody').html(data.products_html);
         $('#modal-confirm-delete').modal('toggle');
       }

@@ -28,6 +28,10 @@ pip install -r requirements/development.txt
 
 ### Deployment on Heroku
 
+Note! Heroku requires `requirements.txt` in the root directory even if we have separate files for
+development and production environment. Hence, we need `requirements.txt` to point to the right
+file (`requirements/production-heroku.txt`) if we want build to succeed.
+
 * Install Heroku: `sudo snap install heroku --classic`.
 * Login: `heroku login`.
 * Clone the repo: `git clone https://github.com/K9173A/ProductCatalog`.

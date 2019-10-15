@@ -1,9 +1,7 @@
-import os
+from .base import *
 
 import dj_database_url
 import django_heroku
-
-from .base import BASE_DIR
 
 
 INSTALLED_APPS = [

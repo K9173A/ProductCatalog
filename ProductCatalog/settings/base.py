@@ -25,9 +25,6 @@ SECRET_KEY = 'wxg@^m_1ha6+otloh*abq8h9w(_jt8lu!_k_*0d#3^wb7sh2^2'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['murmuring-ravine-49991.herokuapp.com']
-
-
 # Application definition
 
 INSTALLED_APPS = [

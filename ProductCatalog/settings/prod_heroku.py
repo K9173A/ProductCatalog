@@ -4,6 +4,8 @@ import dj_database_url
 import django_heroku
 
 
+ALLOWED_HOSTS = ['murmuring-ravine-49991.herokuapp.com']
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',

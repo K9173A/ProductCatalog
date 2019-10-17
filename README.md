@@ -160,8 +160,8 @@ sudo ufw allow 'Nginx Full'
 * Create Supervisor config:
 ```
 cd /etc/supervisor/conf.d/
-touch myproject.conf
-sudo nano myproject.conf
+touch productcatalog.conf
+sudo nano productcatalog.conf
 ```
 * Paste the following settings:
 ```

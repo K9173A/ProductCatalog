@@ -38,7 +38,7 @@ Used software:
 * Vagrant (Host OS) - useful tool to create VMs from config files (e.g. Vagrantfiles) . I used [this](https://github.com/K9173A/vagrantfiles/tree/master/ubuntu-18.04-server-amd) configuration.
 * Gunicorn (Guest OS) - HTTP WSGI server for Python (based on Ruby's Unicorn server). Hidden "behind" Nginx server: gets requests and responses to nginx, but does not communitate with clients directly. Nginx takes care of that.
 * Nginx (Guest OS) - reverse proxy-server which is being used to enhance speed of request handling.
-* Supervisor (Guest OS) - tool which is being used to restart Nginx if it crashes for some reason.
+* Supervisor (Guest OS) - tool which is being used to restart Gunicorn if it crashes for some reason.
 
 **Note!** Deployment algorithm can vary from one OS to another, so be careful when trying to copy-paste my implementation.
 
